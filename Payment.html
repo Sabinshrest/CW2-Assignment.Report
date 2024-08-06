@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Nepal University</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .payment-options label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .payment-options select, .payment-options button, .payment-options input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .payment-options button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .payment-options button:hover {
+            background-color: #555;
+        }
+        .fee-amount {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            max-height: 50px;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <img src="Image/Nepal University.png" alt="Nepal University Logo" class="logo">
+        <h1>Payment</h1>
+    </header>
+    <!-- Main content section -->
+    <main>
+        <section id="payment">
+            <h2>Payment Options</h2>
+            <form class="payment-options" id="payment-form">
+                <p class="fee-amount">Total Fee: $<span id="fee-amount">0</span></p>
+                <input type="hidden" name="fee" id="fee" value="5000">
+
+                <label for="student-name">Your Name:</label>
+                <input type="text" id="student-name" name="student-name" required>
+
+                <label for="payment-method">Select Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                </select>
+
+                <button type="submit">Submit Payment</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <div>
+            <h2>Contact Us</h2>
+            <a href="tel:+44-07824420168">Call Us</a>
+            <a href="mailto:sabinshrest2023@gmail.com">Email</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+        <p>&copy; 2024 Nepal University. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Retrieve form values
+            var studentName = document.getElementById('student-name').value;
+            var paymentMethod = document.getElementById('payment-method').value;
+            var fee = document.getElementById('fee').value;
+
+            // Create URL with query parameters
+            var url = "confirmPayment.html?" +
+                      'student-name=' + encodeURIComponent(studentName) + '&' +
+                      'payment-method=' + encodeURIComponent(paymentMethod) + '&' +
+                      'fee=' + encodeURIComponent(fee);
+
+            // Redirect to confirmation page
+            window.location.href = url;
+        });
+    </script>
+</body>
+</html>

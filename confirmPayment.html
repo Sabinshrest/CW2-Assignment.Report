@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - Nepal University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+        }
+        .confirmation-message {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-message">
+        <h2>Thank You for Joining Nepal University!</h2>
+        <p>Welcome <span id="student-name"></span>,</p>
+        <p>Your payment of $<span id="fee"></span> has been successfully processed.</p>
+        <p>Payment Method: <span id="payment-method"></span></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var studentName = urlParams.get('student-name');
+            var paymentMethod = urlParams.get('payment-method');
+            var fee = urlParams.get('fee');
+
+            document.getElementById('student-name').textContent = studentName;
+            document.getElementById('payment-method').textContent = paymentMethod;
+            document.getElementById('fee').textContent = fee;
+        });
+    </script>
+</body>
+</html>

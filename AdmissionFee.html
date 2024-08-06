@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admission Fee - Nepal University</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .admission-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .admission-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .admission-form select, .admission-form button {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .admission-form button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .admission-form button:hover {
+            background-color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        .logo {
+            max-height: 50px;
+        }
+        .fee-amount {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function updateFee() {
+            var programType = document.getElementById('program-type').value;
+            var course = document.getElementById('course').value;
+            var branch = document.getElementById('branch').value;
+
+            var fee = 0;
+
+            // Example fee structure, modify as needed
+            if (programType === 'undergraduate') {
+                if (course === 'cs') {
+                    fee = branch === 'kathmandu' ? 5000 : 4500;
+                } else if (course === 'eng') {
+                    fee = branch === 'kathmandu' ? 5500 : 5000;
+                }
+            } else if (programType === 'graduate') {
+                if (course === 'cs') {
+                    fee = branch === 'kathmandu' ? 7000 : 6500;
+                } else if (course === 'eng') {
+                    fee = branch === 'kathmandu' ? 7500 : 7000;
+                }
+            } else if (programType === 'phd') {
+                if (course === 'cs') {
+                    fee = branch === 'kathmandu' ? 9000 : 8500;
+                } else if (course === 'eng') {
+                    fee = branch === 'kathmandu' ? 9500 : 9000;
+                }
+            }
+
+            document.getElementById('fee-amount').textContent = 'Total Fee: $' + fee;
+            document.getElementById('fee').value = fee;
+        }
+    </script>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <img src="Image/Nepal University.png" alt="Nepal University Logo" class="logo">
+        <h1>Online Admission</h1>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <section id="admission-fee">
+            <h2>Calculate Your Admission Fee</h2>
+            <p>Select your program type, course, and branch to calculate the total admission fee.</p>
+            <form class="admission-form" action="onlineAdmission.html" method="GET">
+                <label for="program-type">Select Program Type:</label>
+                <select id="program-type" name="program-type" onchange="updateFee()">
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="graduate">Graduate</option>
+                    <option value="phd">PhD</option>
+                </select>
+
+                <label for="course">Select Course:</label>
+                <select id="course" name="course" onchange="updateFee()">
+                    <option value="cs">Computer Science</option>
+                    <option value="eng">Engineering</option>
+                </select>
+
+                <label for="branch">Select University Branch:</label>
+                <select id="branch" name="branch" onchange="updateFee()">
+                    <option value="kathmandu">Kathmandu</option>
+                    <option value="pokhara">Pokhara</option>
+                    <option value="chitwan">Chitwan</option>
+                    <option value="butwal">Butwal</option>
+                    <option value="dharan">Dharan</option>
+                </select>
+
+                <p class="fee-amount" id="fee-amount">Total Fee: $0</p>
+
+                <input type="hidden" id="fee" name="fee" value="0">
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <div>
+            <h2>Contact Us</h2>
+            <a href="tel:+44-07824420168">Call Us</a>
+            <a href="mailto:sabinshrest2023@gmail.com">Email</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+        <p>&copy; 2024 Nepal University. All rights reserved.</p>
+    </footer>
+</body>
+</html>

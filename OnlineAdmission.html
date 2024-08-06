@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Admission - Nepal University</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .admission-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .admission-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .admission-form input, .admission-form button {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .admission-form button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .admission-form button:hover {
+            background-color: #555;
+        }
+        .fee-amount {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        .logo {
+            max-height: 50px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <img src="Image/Nepal University.png" alt="Nepal University Logo" class="logo">
+        <h1>Online Admission Form</h1>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <section id="admission-form">
+            <h2>Online Admission Form</h2>
+            <form class="admission-form" action="payment.html" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <!-- Display fee amount -->
+                <p class="fee-amount">Total Fee: $<span id="fee-amount">0</span></p>
+                <input type="hidden" name="fee" id="fee" value="0">
+
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <div>
+            <h2>Contact Us</h2>
+            <a href="tel:+44-07824420168">Call Us</a>
+            <a href="mailto:sabinshrest2023@gmail.com">Email</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+        <p>&copy; 2024 Nepal University. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle fee display and form data
+        document.addEventListener('DOMContentLoaded', function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var fee = urlParams.get('fee');
+            if (fee) {
+                document.getElementById('fee-amount').textContent = fee;
+                document.getElementById('fee').value = fee;
+            }
+        });
+    </script>
+</body>
+</html>

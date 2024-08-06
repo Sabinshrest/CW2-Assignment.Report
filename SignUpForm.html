@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nepal University Application</title>
+    <!-- CSS Styling -->
+    <style>
+        /* Basic body styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Header styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Logo styling in header */
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px; 
+            height: 100px;
+        }
+
+        /* Navigation bar styling */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            background: #444;
+            transition: background 0.3s;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #e0e0e0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input[type="password"] {
+            padding-right: 3rem;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .show-password-btn {
+            position: absolute;
+            top: 58%;
+            right: 1px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.6rem;
+            color: #3498db;
+        }
+
+        .toggle-forms {
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #3498db;
+        }
+
+        .toggle-forms:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #3498db;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            transition: border 0.3s;
+        }
+
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        footer img {
+            margin-left: 10px;
+            width: 200px;
+            height: 50px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            color: #333;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode header {
+            background: #222;
+            color: #fff;
+        }
+
+        .dark-mode nav ul {
+            background: #333;
+        }
+
+        .dark-mode nav ul li a {
+            color: #ccc;
+        }
+
+        .dark-mode section {
+            background: #444;
+            color: #fff;
+        }
+
+        .dark-mode .form-container {
+            background: #555;
+            color: #fff;
+        }
+
+        .dark-mode button {
+            background: #444;
+            color: #fff;
+        }
+
+        .dark-mode footer {
+            background: #222;
+            color: #fff;
+        }
+
+        .dark-mode .theme-toggle {
+            background: #333;
+            color: #fff;
+        }
+
+        .dark-mode table, .dark-mode th, .dark-mode td {
+            border: 1px solid #666;
+        }
+
+        /* Success page styling */
+        .success-message {
+            text-align: center;
+            margin: 2rem;
+        }
+
+        .success-message h1 {
+            color: #4CAF50;
+        }
+
+        .success-message p {
+            font-size: 1.2rem;
+        }
+
+        .success-message a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .success-message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with logo, title, and theme toggle button -->
+    <header>
+        <img src="Image/NepalFlag.jpeg" alt="Nepal Flag">
+        <h1>Welcome to Nepal University Application</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#module-outlines">Module Outlines</a></li>
+            <li><a href="#related-modules">Related Modules</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Success message section -->
+        <div id="success-message" class="success-message" style="display: none;">
+            <h1>Form Submitted Successfully!</h1>
+            <p>Thank you for your submission. We will process your application and get back to you soon.</p>
+            <a href="HomePage.html">Return to Home Page</a>
+        </div>
+
+        <!-- Sign Up and Sign In forms section -->
+        <section id="signup">
+            <div class="form-container" id="signup-section">
+                <h2>Sign Up Form</h2>
+                <form id="signup-form" onsubmit="return validateForm(event)">
+                    <label for="campus-branch">Select Campus Branch:</label>
+                    <select id="campus-branch" name="campus-branch">
+                        <option value="">Select your campus</option>
+                        <option value="kathmandu">Kathmandu</option>
+                        <option value="pokhara">Pokhara</option>
+                        <option value="lalitpur">Lalitpur</option>
+                        <option value="bhaktapur">Bhaktapur</option>
+                    </select>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob"><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your Email Address"><br>
+                    
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                        <button type="button" class="show-password-btn">SHOW</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+                        <button type="button" class="show-password-btn">SHOW</button>
+                    </div>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="toggle-forms" onclick="toggleForm()">Already have an account? Sign In</div>
+            </div>
+
+            <!-- Sign In Form -->
+            <div class="form-container" id="signin-section" style="display: none;">
+                <h2>Sign In Form</h2>
+                <form id="signin-form" onsubmit="return validateLoginForm()">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="login-email" placeholder="Enter your Email Address"><br>
+                    
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="login-password" placeholder="Enter your password"><br>
+                    
+                    <button type="submit">Sign In</button>
+                </form>
+                <div class="forgot-password"><a href="#">Forgot Password?</a></div>
+                <div class="toggle-forms" onclick="toggleForm()">Don't have an account? Sign Up</div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to Nepal University. We offer a range of programs and courses to suit your educational needs. Explore our campus branches and join us for a fulfilling academic journey.</p>
+        </section>
+
+        <!-- Module Outlines Section -->
+        <section id="module-outlines">
+            <h2>Module Outlines</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module Code</th>
+                        <th>Module Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CS101</td>
+                        <td>Introduction to Computer Science</td>
+                        <td>Basic concepts in computer science.</td>
+                    </tr>
+                    <tr>
+                        <td>CS102</td>
+                        <td>Data Structures</td>
+                        <td>Understanding of various data structures.</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Related Modules Section -->
+        <section id="related-modules">
+            <h2>Related Modules</h2>
+            <p>Here are some related modules you might be interested in:</p>
+            <ul>
+                <li>Web Development</li>
+                <li>Database Management</li>
+                <li>Software Engineering</li>
+                <!-- Add more related modules as needed -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 Nepal University. All Rights Reserved.</p>
+        <img src="Image/Nepal University.png" alt="Nepal University Logo">
+    </footer>
+
+    <!-- JavaScript Code -->
+    <script>
+        // Theme toggle function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Form toggle function
+        function toggleForm() {
+            const signupSection = document.getElementById('signup-section');
+            const signinSection = document.getElementById('signin-section');
+
+            if (signupSection.style.display === 'none') {
+                signupSection.style.display = 'block';
+                signinSection.style.display = 'none';
+            } else {
+                signupSection.style.display = 'none';
+                signinSection.style.display = 'block';
+            }
+        }
+
+        // Show/hide password functionality
+        document.querySelectorAll('.show-password-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const passwordInput = button.previousElementSibling;
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    button.textContent = 'HIDE';
+                } else {
+                    passwordInput.type = 'password';
+                    button.textContent = 'SHOW';
+                }
+            });
+        });
+
+        // Form validation and redirection
+        function validateForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const campusBranch = document.getElementById('campus-branch').value;
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (!campusBranch || !name || !dob || !email || !password || !confirmPassword) {
+                alert('All fields are required!');
+                return false;
+            }
+
+            // Name validation: only letters, spaces, and hyphens
+            const namePattern = /^[A-Za-z\s\-]+$/;
+            if (!namePattern.test(name)) {
+                alert('Name can only contain letters, spaces, and hyphens.');
+                return false;
+            }
+
+            // DOB validation: valid date within 1900 to 2100 range
+            const dobDate = new Date(dob);
+            const year = dobDate.getFullYear();
+            if (year < 1900 || year > 2100) {
+                alert('Date of Birth must be between 1900 and 2100.');
+                return false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            if (password.length < 10) {
+                alert('Password must be at least 10 characters long.');
+                return false;
+            }
+
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                alert('Password must contain at least one special character.');
+                return false;
+            }
+
+            if (!/[0-9]/.test(password)) {
+                alert('Password must contain at least one number.');
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+
+            // Save form data to local storage
+            saveFormData(campusBranch, name, dob, email, password);
+
+            // Show success message and hide other sections
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('signin-section').style.display = 'none';
+
+            return true;
+        }
+
+        function saveFormData(campusBranch, name, dob, email, password) {
+            const formData = {
+                campusBranch: campusBranch,
+                name: name,
+                dob: dob,
+                email: email,
+                password: password
+            };
+            localStorage.setItem('formData', JSON.stringify(formData));
+        }
+
+        function validateLoginForm() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            if (!email || !password) {
+                alert('All fields are required!');
+                return false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            alert('Login successful!');
+            return true;
+        }
+    </script>
+</body>
+</html>
