@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Nepal University Home Page</title>
     <style id="light-mode">
@@ -11,24 +12,32 @@
             margin: 0;
             padding: 0;
         }
-        header, footer {
+
+        header,
+        footer {
             background-color: #333;
             color: white;
         }
+
         nav {
             background-color: #333;
         }
-        nav a, nav .dropdown {
+
+        nav a,
+        nav .dropdown {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
             display: block;
         }
-        nav a:hover, nav .dropdown:hover {
+
+        nav a:hover,
+        nav .dropdown:hover {
             background-color: #ddd;
             color: black;
         }
+
         nav .dropdown-content {
             display: none;
             position: absolute;
@@ -36,6 +45,7 @@
             min-width: 160px;
             z-index: 1;
         }
+
         nav .dropdown-content a {
             color: white;
             padding: 12px 16px;
@@ -43,13 +53,16 @@
             display: block;
             text-align: left;
         }
+
         nav .dropdown-content a:hover {
             background-color: #ddd;
             color: black;
         }
+
         nav .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .content div {
             background-color: white;
             color: black;
@@ -64,31 +77,40 @@
             margin: 0;
             padding: 0;
         }
-        header, footer {
+
+        header,
+        footer {
             background-color: #0f0f0f;
             color: white;
         }
+
         nav {
             background-color: #222;
         }
-        nav a, nav .dropdown {
+
+        nav a,
+        nav .dropdown {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
             display: block;
         }
-        nav a:hover, nav .dropdown:hover {
+
+        nav a:hover,
+        nav .dropdown:hover {
             background-color: #555;
             color: white;
         }
+
         nav .dropdown-content {
             display: none;
             position: absolute;
             background-color: #222;
             min-width: 160px;
-            z-index: 1;
+            z-index: 100 !important;
         }
+
         nav .dropdown-content a {
             color: white;
             padding: 12px 16px;
@@ -96,51 +118,73 @@
             display: block;
             text-align: left;
         }
+
         nav .dropdown-content a:hover {
             background-color: #555;
             color: white;
         }
+
         nav .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .content div {
-            background-color: #333;
+            background-color: rgb(31, 31, 31);
             color: white;
+        }
+
+        .content div:hover {
+            color: black;
         }
     </style>
     <style>
         /* Common CSS styles for both light and dark mode */
         header {
-            padding: 10px 20px;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header>div {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            padding: 0 30px;
         }
+
         nav {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            align-items: center;
         }
-        main {
-            padding: 20px;
-        }
+
         .content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            gap: 10px;
+            padding: 10px;
         }
+
         .content div {
             flex: 1;
             margin: 10px;
-            padding: 20px;
+            padding: 30px 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         .content div:hover {
+            box-shadow: 0px 0px 20px 3px rgb(188, 188, 188);
             background-color: #f4f4f4;
         }
+
         footer {
             text-align: center;
             padding: 10px 0;
@@ -148,22 +192,27 @@
             width: 100%;
             bottom: 0;
         }
+
         a {
             color: aliceblue;
         }
+
         .image-container {
             text-align: center;
             margin-top: 20px;
         }
+
         .image-container img {
             max-width: 50%;
             height: auto;
             border-radius: 5px;
             transition: filter 0.3s ease;
         }
+
         .image-container img:hover {
             filter: brightness(0.8);
         }
+
         #toggle-mode {
             background-color: transparent;
             color: white;
@@ -171,27 +220,55 @@
             cursor: pointer;
             font-size: 14px;
         }
+
         .logo {
             max-height: 50px;
         }
+
         .hero {
-            background-image: url('Image/University of Nepal.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
             color: white;
             text-align: center;
-            border-radius: 5px;
-            animation: fadeIn 2s ease-in;
+            height: 600px;
+            position: relative;
         }
+
+        .hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            object-fit: cover;
+        }
+
+        .hero>div.overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            background-color: black;
+            opacity: 30%;
+        }
+
+        .hero>div:last-child {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .hero h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
+
+
         .hero p {
             font-size: 18px;
-            margin-bottom: 30px;
         }
+
         .hero a {
             background-color: #0066cc;
             color: white;
@@ -200,20 +277,25 @@
             border-radius: 5px;
             font-size: 16px;
         }
+
         .hero a:hover {
             background-color: #004499;
         }
+
         .animated-logo {
             position: relative;
             display: inline-block;
         }
+
         .animated-logo img {
             max-height: 50px;
             transition: transform 0.3s ease-in-out;
         }
+
         .animated-logo:hover img {
             transform: scale(1.2);
         }
+
         .popup-text {
             display: none;
             position: absolute;
@@ -226,67 +308,73 @@
             border-radius: 5px;
             white-space: nowrap;
         }
+
         .animated-logo:hover .popup-text {
             display: block;
         }
+
         /* Pie chart container */
         .pie-chart-container {
             margin: 20px auto;
             max-width: 600px;
             text-align: center;
         }
+
         /* Banner styles */
         .banner {
-            background-color: #f8f9fa;
             padding: 10px;
             text-align: center;
             border-bottom: 2px solid #ddd;
             margin-top: 20px;
         }
+
         .banner p {
             margin: 0;
         }
+
         .banner a {
             color: #0066cc;
             text-decoration: none;
         }
+
         .banner a:hover {
             text-decoration: underline;
         }
+
         /* Calculator styles */
         .calculator {
             max-width: 200px;
             margin: 20px auto;
             text-align: center;
         }
+
         .calculator button {
             width: 40px;
             height: 40px;
             font-size: 18px;
             margin: 2px;
         }
+
         #calc-display {
             width: calc(100% - 8px);
             height: 40px;
             text-align: right;
             font-size: 18px;
         }
+
         /* Date/time display */
         #date-time {
             font-size: 14px;
             color: #333;
         }
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+
+        .swiper-wrapper {
+            position: static !important;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <script>
         function toggleMode() {
             var lightMode = document.getElementById('light-mode');
@@ -306,7 +394,7 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Check localStorage for theme preference
             var savedMode = localStorage.getItem('theme');
             if (savedMode) {
@@ -356,7 +444,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     let label = context.label || '';
                                     let value = context.raw || 0;
                                     return label + ': ' + value;
@@ -377,7 +465,7 @@
             setInterval(updateDateTime, 1000); // Update every second
 
             // Form validation
-            document.getElementById('sampleForm').addEventListener('submit', function(event) {
+            document.getElementById('sampleForm').addEventListener('submit', function (event) {
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
@@ -388,69 +476,73 @@
                 }
             });
         });
+
     </script>
+
 </head>
+
 <body>
     <!-- Header section -->
     <header>
-        <div class="animated-logo">
-            <img src="Image/Nepal University.png" alt="Nepal University Logo" class="logo">
-            <div class="popup-text">Nepal University</div>
+        <div>
+            <div class="animated-logo">
+                <img src="Image/Nepal University.png" alt="Nepal University Logo" class="logo">
+                <div class="popup-text">Nepal University</div>
+            </div>
+            <h1>Welcome to Nepal University</h1>
+            <button id="toggle-mode" onclick="toggleMode()">Dark Mode</button>
         </div>
-        <h1>Welcome to Nepal University</h1>
-        <button id="toggle-mode" onclick="toggleMode()">Dark Mode</button>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="AboutNepal.html">About Nepal</a>
+            <a href="Apply.html">Apply</a>
+            <a href="SignUpForm.html">SignUp Form</a>
+            <a href="StudentLife.html">Student Life</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Campuses</a>
+                <div class="dropdown-content">
+                    <a href="kathmanducampuses.html">Kathmandu Campus</a>
+                    <a href="Pokharacampuses.html">Pokhara Campus</a>
+                    <a href="chitwan-campus.html">Chitwan Campus</a>
+                    <a href="lumbini-campus.html">Lumbini Campus</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Courses</a>
+                <div class="dropdown-content">
+                    <a href="HealthAndSocialCare.html">Health and Social Care</a>
+                    <a href="BusinessAndManagement.html">Business and Management</a>
+                    <a href="HRM.html">HRM</a>
+                    <a href="PsychologyAndSociology.html">Psychology and Sociology</a>
+                    <a href="ComputingAndIT.html">Computing and IT</a>
+                    <a href="Tourism.html">Tourism</a>
+                    <a href="LawAndCriminology.html">Law and Criminology</a>
+                    <a href="Finance.html">Finance</a>
+                    <a href="DataAnalytics.html">Data Analytics</a>
+                    <a href="MarketingAndCommunications.html">Marketing and Communications</a>
+                    <a href="GraphicDesign.html">Graphic Design</a>
+                    <a href="Engineering.html">Engineering</a>
+                </div>
+            </div>
+            <a href="Contact.html">Contact Us</a>
+        </nav>
     </header>
 
     <!-- Navigation section -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="AboutNepal.html">About Nepal</a>
-        <a href="Apply.html">Apply</a>
-        <a href="SignUpForm.html">SignUp Form</a>
-        <a href="StudentLife.html">Student Life</a>
-        <div class="dropdown">
-            <a href="javascript:void(0)">Campuses</a>
-            <div class="dropdown-content">
-                <a href="kathmanducampuses.html">Kathmandu Campus</a>
-                <a href="Pokharacampuses.html">Pokhara Campus</a>
-                <a href="chitwan-campus.html">Chitwan Campus</a>
-                <a href="lumbini-campus.html">Lumbini Campus</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="javascript:void(0)">Courses</a>
-            <div class="dropdown-content">
-                <a href="HealthAndSocialCare.html">Health and Social Care</a>
-                <a href="BusinessAndManagement.html">Business and Management</a>
-                <a href="HRM.html">HRM</a>
-                <a href="PsychologyAndSociology.html">Psychology and Sociology</a>
-                <a href="ComputingAndIT.html">Computing and IT</a>
-                <a href="Tourism.html">Tourism</a>
-                <a href="LawAndCriminology.html">Law and Criminology</a>
-                <a href="Finance.html">Finance</a>
-                <a href="DataAnalytics.html">Data Analytics</a>
-                <a href="MarketingAndCommunications.html">Marketing and Communications</a>
-                <a href="GraphicDesign.html">Graphic Design</a>
-                <a href="Engineering.html">Engineering</a>
-            </div>
-        </div>
-        <a href="Contact.html">Contact Us</a>
-    </nav>
-
-    <!-- Hero section -->
-    <div class="hero">
-        <h2>Discover Your Potential with Nepal University</h2>
-        <p>Join us and be a part of a thriving community of learners and educators dedicated to excellence.</p>
-        <a href="Apply.html">Start Your Journey</a>
-    </div>
-
-    <!-- Banner section -->
-    <div class="banner">
-        <p>Join our upcoming webinar on modern teaching techniques! <a href="webinar.html">Learn more</a></p>
-    </div>
 
     <!-- Main content section -->
     <main>
+        <div class="swiper-container" style="width: 100%; overflow: hidden;">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="banner">
+            <p>Join our upcoming webinar on modern teaching techniques! <a href="webinar.html">Learn more</a></p>
+        </div>
         <!-- Image container -->
         <div class="image-container">
             <img src="Image/University of Nepal.jpg" alt="Nepal University Campus">
@@ -460,15 +552,18 @@
         <div class="content">
             <div>
                 <h2>About Nepal University</h2>
-                <p>Nepal University is a prestigious institution known for its cultural richness and academic prowess. Our mission is to provide quality education and promote Nepal’s heritage.</p>
+                <p>Nepal University is a prestigious institution known for its cultural richness and academic prowess.
+                    Our mission is to provide quality education and promote Nepal’s heritage.</p>
             </div>
             <div>
                 <h2>Academics</h2>
-                <p>We offer a wide range of undergraduate and graduate programs across various disciplines. Our faculty are dedicated to fostering critical thinking and global citizenship.</p>
+                <p>We offer a wide range of undergraduate and graduate programs across various disciplines. Our faculty
+                    are dedicated to fostering critical thinking and global citizenship.</p>
             </div>
             <div>
                 <h2>Admissions</h2>
-                <p>Join our diverse community of scholars. Learn about our admission process, requirements, and explore the opportunities Nepal University offers.</p>
+                <p>Join our diverse community of scholars. Learn about our admission process, requirements, and explore
+                    the opportunities Nepal University offers.</p>
             </div>
         </div>
 
@@ -490,5 +585,46 @@
         <p>&copy; 2024 Nepal University. All rights reserved.</p>
         <p id="date-time"></p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const bannerData = [
+            {
+                id: 1,
+                imageUrl: 'Image/University of Nepal.jpg',
+                title: 'Discover Your Potential with Nepal University',
+                description: 'Join us and be a part of a thriving community of learners and educators dedicated to excellence.'
+            },
+            {
+                id: 2,
+                imageUrl: 'Image/University of Nepal.jpg',
+                title: 'Hello World',
+                description: 'Join us and be a part of a thriving community of learners and educators dedicated to excellence.'
+            },
+        ]
+        const sliderContent = document.querySelector('.swiper-wrapper')
+        sliderContent.innerHTML = bannerData.map((dataItem, id) => {
+            return `
+        <div key=${id} class="swiper-slide">
+            <div class="hero">
+                <img src="${dataItem.imageUrl}" alt="${dataItem.title}">
+                <div class="overlay"></div>
+                <div>
+                    <h2>${dataItem.title}</h2>
+                    <p>${dataItem.description}</p>
+                    <a href="Apply.html">Start Your Journey</a>
+                </div>
+            </div>
+        </div>`;
+        }).join('');
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: { delay: 5000 },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 </body>
+
 </html>
