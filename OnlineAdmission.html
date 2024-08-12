@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Online Admission - Nepal University</title>
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         body {
             background-color: white;
@@ -10,19 +12,24 @@
             margin: 0;
             padding: 0;
         }
-        header, footer {
+
+        header,
+        footer {
             background-color: #333;
             color: white;
             padding: 10px 20px;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         main {
             padding: 20px;
         }
+
         .admission-form {
             display: flex;
             flex-direction: column;
@@ -33,15 +40,19 @@
             border-radius: 5px;
             background-color: #f9f9f9;
         }
+
         .admission-form label {
             margin-bottom: 5px;
             font-weight: bold;
         }
-        .admission-form input, .admission-form button {
+
+        .admission-form input,
+        .admission-form button {
             margin-bottom: 15px;
             padding: 10px;
             font-size: 16px;
         }
+
         .admission-form button {
             background-color: #333;
             color: white;
@@ -49,13 +60,16 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .admission-form button:hover {
             background-color: #555;
         }
+
         .fee-amount {
             font-weight: bold;
             margin-top: 20px;
         }
+
         footer {
             text-align: center;
             padding: 10px 20px;
@@ -63,19 +77,23 @@
             width: 100%;
             bottom: 0;
         }
+
         .logo {
             max-height: 50px;
         }
+
         footer a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
         }
+
         footer a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <!-- Header section -->
     <header>
@@ -95,7 +113,8 @@
                 <input type="email" id="email" name="email" required>
 
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit phone number">
 
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address" required>
@@ -111,18 +130,37 @@
 
     <!-- Footer section -->
     <footer>
-        <div>
+        <div class="footer-content">
             <h2>Contact Us</h2>
-            <a href="tel:+44-07824420168">Call Us</a>
-            <a href="mailto:sabinshrest2023@gmail.com">Email</a>
-            <a href="feedback.html">Feedback</a>
+            <div class="contact">
+                <a href="mailto:sabinshrest2023@gmail.com">sabinshrest2023@gmail.com</a>
+                <a href="tel:+44-07824420168">+44-07824420168</a>
+                <a>Basantapur, Kathmandu</a>
+            </div>
+            <!-- <a href="feedback.html">Feedback</a> -->
+        </div>
+        <div class="footer-content">
+            <h2>Follow Us</h2>
+            <div>
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
         </div>
         <p>&copy; 2024 Nepal University. All rights reserved.</p>
+        <p id="date-time"></p>
     </footer>
+    <script src="https://kit.fontawesome.com/27bd3bf8d7.js" crossorigin="anonymous"></script>
 
     <script>
         // JavaScript to handle fee display and form data
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var urlParams = new URLSearchParams(window.location.search);
             var fee = urlParams.get('fee');
             if (fee) {
@@ -132,4 +170,5 @@
         });
     </script>
 </body>
+
 </html>

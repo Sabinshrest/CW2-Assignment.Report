@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Admission Fee - Nepal University</title>
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         body {
             background-color: white;
@@ -10,19 +12,24 @@
             margin: 0;
             padding: 0;
         }
-        header, footer {
+
+        header,
+        footer {
             background-color: #333;
             color: white;
             padding: 10px 20px;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         main {
             padding: 20px;
         }
+
         .admission-form {
             display: flex;
             flex-direction: column;
@@ -33,15 +40,19 @@
             border-radius: 5px;
             background: #f9f9f9;
         }
+
         .admission-form label {
             margin-bottom: 5px;
             font-weight: bold;
         }
-        .admission-form select, .admission-form button {
+
+        .admission-form select,
+        .admission-form button {
             margin-bottom: 15px;
             padding: 10px;
             font-size: 16px;
         }
+
         .admission-form button {
             background-color: #333;
             color: white;
@@ -49,9 +60,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .admission-form button:hover {
             background-color: #555;
         }
+
         footer {
             text-align: center;
             padding: 10px 20px;
@@ -59,18 +72,22 @@
             width: 100%;
             bottom: 0;
         }
+
         .logo {
             max-height: 50px;
         }
+
         .fee-amount {
             font-weight: bold;
             margin-top: 20px;
         }
+
         footer a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
         }
+
         footer a:hover {
             text-decoration: underline;
         }
@@ -89,26 +106,70 @@
                     fee = branch === 'kathmandu' ? 5000 : 4500;
                 } else if (course === 'eng') {
                     fee = branch === 'kathmandu' ? 5500 : 5000;
+                } else if (course === 'data') {
+                    fee = branch === 'kathmandu' ? 5300 : 4800;
+                } else if (course === 'gra') {
+                    fee = branch === 'kathmandu' ? 5200 : 4700;
+                } else if (course === 'law') {
+                    fee = branch === 'kathmandu' ? 5400 : 4900;
+                } else if (course === 'bus') {
+                    fee = branch === 'kathmandu' ? 5100 : 4600;
+                } else if (course === 'tour') {
+                    fee = branch === 'kathmandu' ? 5250 : 4750;
+                } else if (course === 'mar') {
+                    fee = branch === 'kathmandu' ? 5150 : 4650;
+                } else if (course === 'health') {
+                    fee = branch === 'kathmandu' ? 5450 : 4950;
                 }
             } else if (programType === 'graduate') {
                 if (course === 'cs') {
                     fee = branch === 'kathmandu' ? 7000 : 6500;
                 } else if (course === 'eng') {
                     fee = branch === 'kathmandu' ? 7500 : 7000;
+                } else if (course === 'data') {
+                    fee = branch === 'kathmandu' ? 7300 : 6800;
+                } else if (course === 'gra') {
+                    fee = branch === 'kathmandu' ? 7200 : 6700;
+                } else if (course === 'law') {
+                    fee = branch === 'kathmandu' ? 7400 : 6900;
+                } else if (course === 'bus') {
+                    fee = branch === 'kathmandu' ? 7100 : 6600;
+                } else if (course === 'tour') {
+                    fee = branch === 'kathmandu' ? 7250 : 6750;
+                } else if (course === 'mar') {
+                    fee = branch === 'kathmandu' ? 7150 : 6650;
+                } else if (course === 'health') {
+                    fee = branch === 'kathmandu' ? 7450 : 6950;
                 }
             } else if (programType === 'phd') {
                 if (course === 'cs') {
                     fee = branch === 'kathmandu' ? 9000 : 8500;
                 } else if (course === 'eng') {
                     fee = branch === 'kathmandu' ? 9500 : 9000;
+                } else if (course === 'data') {
+                    fee = branch === 'kathmandu' ? 9300 : 8800;
+                } else if (course === 'gra') {
+                    fee = branch === 'kathmandu' ? 9200 : 8700;
+                } else if (course === 'law') {
+                    fee = branch === 'kathmandu' ? 9400 : 8900;
+                } else if (course === 'bus') {
+                    fee = branch === 'kathmandu' ? 9100 : 8600;
+                } else if (course === 'tour') {
+                    fee = branch === 'kathmandu' ? 9250 : 8750;
+                } else if (course === 'mar') {
+                    fee = branch === 'kathmandu' ? 9150 : 8650;
+                } else if (course === 'health') {
+                    fee = branch === 'kathmandu' ? 9450 : 8950;
                 }
             }
+
 
             document.getElementById('fee-amount').textContent = 'Total Fee: $' + fee;
             document.getElementById('fee').value = fee;
         }
     </script>
 </head>
+
 <body>
     <!-- Header section -->
     <header>
@@ -133,6 +194,13 @@
                 <select id="course" name="course" onchange="updateFee()">
                     <option value="cs">Computer Science</option>
                     <option value="eng">Engineering</option>
+                    <option value="data">Data Analytics</option>
+                    <option value="gra">Graphics Design</option>
+                    <option value="law">Law and Criminology</option>
+                    <option value="bus">Business and Management</option>
+                    <option value="tour">Tourism</option>
+                    <option value="mar">Marketing and Communication</option>
+                    <option value="health">Health and Social Care</option>
                 </select>
 
                 <label for="branch">Select University Branch:</label>
@@ -164,4 +232,5 @@
         <p>&copy; 2024 Nepal University. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
