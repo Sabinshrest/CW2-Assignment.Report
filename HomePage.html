@@ -3,7 +3,269 @@
 
 <head>
     <title>Nepal University Home Page</title>
-    <link rel="stylesheet" href="/css/style.css">
+        <style>
+        header {
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .content div {
+            flex: 1;
+            margin: 10px;
+            padding: 30px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content div:hover {
+            box-shadow: 0px 0px 20px 3px rgb(188, 188, 188);
+            background-color: #f4f4f4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        a {
+            color: aliceblue;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 5px;
+            transition: filter 0.3s ease;
+        }
+
+        .image-container img:hover {
+            filter: brightness(0.8);
+        }
+
+        #toggle-mode {
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .logo {
+            max-height: 50px;
+        }
+
+        .hero {
+            color: white;
+            text-align: center;
+            height: 600px;
+            position: relative;
+        }
+
+        .hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            object-fit: cover;
+        }
+
+        .hero > div.overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            background-color: black;
+            opacity: 30%;
+        }
+
+        .hero > div:last-child {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .hero a {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .hero a:hover {
+            background-color: #004499;
+        }
+
+        .animated-logo {
+            position: relative;
+            display: inline-block;
+        }
+
+        .animated-logo img {
+            max-height: 50px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .animated-logo:hover img {
+            transform: scale(1.2);
+        }
+
+        .popup-text {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        .animated-logo:hover .popup-text {
+            display: block;
+        }
+
+        /* Pie chart container */
+        .pie-chart-container {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Banner styles */
+        .banner {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .banner p {
+            margin: 0;
+        }
+
+        .banner a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .banner a:hover {
+            text-decoration: underline;
+        }
+
+        /* Calculator styles */
+        .calculator {
+            max-width: 200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .calculator button {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            margin: 2px;
+        }
+
+        #calc-display {
+            width: calc(100% - 8px);
+            height: 40px;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        /* Date/time display */
+        #date-time {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .swiper-wrapper {
+            position: static !important;
+        }
+
+        /* footer section */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-content > div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-content > div.contact {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+        }
+
+        .footer-content > div.contact a {
+            font-size: 18px;
+        }
+
+        .footer-content a {
+            text-decoration: none;
+            font-size: 24px;
+        }
+    </style>
     <style id="light-mode">
         /* Light mode styles */
         body {
@@ -336,6 +598,13 @@
         </div>
 
         <!-- Pie chart -->
+		<!-- Pie chart -->
+       <div class="pie-chart-container">
+        <h2>Course Distribution of Students at Nepal University</h2>
+        <p>This chart represents the distribution of students across various disciplines at Nepal University. Our diverse programs ensure that students can pursue their academic interests in fields ranging from Health and Social Care to Engineering, ensuring a well-rounded educational experience.</p>
+        <canvas id="coursesPieChart"></canvas>
+       </div>
+
         <div class="pie-chart-container">
             <canvas id="coursesPieChart"></canvas>
         </div>
@@ -353,19 +622,26 @@
             </div>
             <!-- <a href="feedback.html">Feedback</a> -->
         </div>
-        <div class="footer-content">
-            <h2>Follow Us</h2>
-            <div>
-                <a href="#">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-            </div>
+<div class="footer-content">
+    <h2>Follow Us</h2>
+    <div>
+        <!-- Facebook Main Page -->
+        <a href="https://www.facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <!-- Instagram Main Page -->
+        <a href="https://www.instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <!-- TikTok Main Page -->
+        <a href="https://www.tiktok.com" target="_blank">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+    </div>
+</div>
+
+</div>
+
         </div>
         <p>&copy; 2024 Nepal University. All rights reserved.</p>
         <p id="date-time"></p>
@@ -383,7 +659,7 @@
             {
                 id: 2,
                 imageUrl: 'Image/University of Nepal.jpg',
-                title: 'Hello World',
+                title: 'Hello Student',
                 description: 'Join us and be a part of a thriving community of learners and educators dedicated to excellence.'
             },
         ]
